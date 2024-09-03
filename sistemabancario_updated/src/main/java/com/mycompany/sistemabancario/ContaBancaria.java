@@ -31,7 +31,9 @@ public class ContaBancaria {
     }
 
     public void depositar(double deposito) {
+        if(deposito > 0){
         saldo = saldo + deposito;
+        }
     }
 
     public boolean sacar(double saque) {

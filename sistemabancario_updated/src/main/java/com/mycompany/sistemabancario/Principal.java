@@ -8,12 +8,12 @@ public class Principal {
         Cliente joao = new Cliente();
         joao.nome = "Joao Cardosas Filho";
         joao.profissao = "Cientista de Dados";
-        joao.cpf = "00088822211-56";
+        joao.setCpf("222555444-99");
         
         Cliente ana = new Cliente();
         ana.nome = "Ana Taylor";
         ana.profissao = "Professora de inglês";
-        ana.cpf = "888777666-56";
+        ana.setCpf("555689485-99");
         
         //Definindo endereço de João e Ana
         Endereco enderecoJoao = new Endereco();
@@ -35,9 +35,11 @@ public class Principal {
         //Printando as Classes Endereco
         System.out.println("**********************");
         System.out.println(joao.nome);
+        System.out.println(joao.getCpf());
         System.out.println(joao.endereco);
         System.out.println("**********************");
         System.out.println(ana.nome);
+        System.out.println(ana.getCpf());
         System.out.println(ana.endereco);
         System.out.println("**********************");
         
@@ -51,31 +53,25 @@ public class Principal {
         //Definindo dados da conta
         contaJoao.setAgencia("1000-0");
         contaJoao.setNumero("2000-0");
-        System.out.println("agencia joao: " + contaJoao.getAgencia());
         System.out.println("numero joao: " + contaJoao.getNumero());
-       
-        System.out.println("Saldo joao anterior: " + joao.conta.getSaldo());
-        contaJoao.transferir(100, contaAna);
-        System.out.println("Saldo ana anterior: " + ana.conta.getSaldo());
-         System.out.println("Saldo joao depois: " + contaJoao.getSaldo());
-        System.out.println("Saldo ana depois: " + contaAna.getSaldo());
+        System.out.println("agencia joao: " + contaJoao.getAgencia());
         
+        contaAna.setAgencia("1780-4");
+        contaAna.setNumero("4300-4");
+        System.out.println("numero Ana: " + contaAna.getNumero());
+        System.out.println("agencia Ana: " + contaAna.getAgencia());
         
-        /*contaJoao.numero = "123-3";
-        contaJoao.agencia = "000111222";
-        System.out.println("saldo da ana = " + contaJoao.saldo);
-        System.out.println("agencia da ana = " + contaJoao.agencia);
-        System.out.println("numero da conta = " + contaJoao.numero);
-        contaJoao.depositar(150);
-        System.out.println("saldo da ana = " + contaJoao.saldo);
-        boolean sacou = contaJoao.sacar(50);
-        if(sacou == true){
-            System.out.println("saque realizado com sucesso");
-            System.out.println("saldo da ana = " + contaJoao.saldo);
-        }else {
-            System.out.println("saque NÃO realizado com sucesso");
-        }*/
+        //Movimentações das Contas
+        System.out.println("**********************");
+        contaJoao.depositar(1000);
+        System.out.println("Saldo joao antes : " + joao.conta.getSaldo());
+        System.out.println("Saldo ana antes: " + ana.conta.getSaldo());
         
+        System.out.println("**********************");
+
+        contaJoao.transferir(150, contaAna);
+        System.out.println("Saldo joao depois: " + joao.conta.getSaldo());
+        System.out.println("Saldo ana depois: " + ana.conta.getSaldo());
     }
     
 }
