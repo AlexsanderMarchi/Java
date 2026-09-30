@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Farmacia - Login</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="card">
+    <h1>Farmacia</h1>
+    <p class="sub">Entre com sua conta</p>
+
+    <p class="erro" th:if="${erro}" th:text="${erro}"></p>
+
+    <form th:action="@{/login}" method="post">
+        <label for="usuario">Usuario</label>
+        <input type="text" id="usuario" name="usuario" required>
+
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" required>
+
+        <button type="submit">Entrar</button>
+    </form>
+</div>
+</body>
+</html>

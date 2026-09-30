@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Farmácia Vida - Início</title>
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+</head>
+<body>
+
+<!-- Barra do topo -->
+<div class="topbar">
+    <span>🚚 Frete grátis em compras acima de R$ 99</span>
+    <span>📞 Televendas: (11) 4000-1234</span>
+</div>
+
+<!-- Cabeçalho -->
+<header class="header">
+    <div class="container header-inner">
+        <a href="#" class="logo">
+            <span class="logo-cruz">✚</span>
+            <span>Farmácia <strong>Vida</strong></span>
+        </a>
+
+        <form class="busca" onsubmit="return false">
+            <input type="text" placeholder="O que você procura hoje?">
+            <button type="submit">🔍</button>
+        </form>
+
+        <div class="header-acoes">
+            <span class="ola">Olá, <strong th:text="${usuario}">cliente</strong></span>
+            <a href="#" class="carrinho">🛒 <span class="badge">3</span></a>
+            <form th:action="@{/logout}" method="post">
+                <button type="submit" class="sair">Sair</button>
+            </form>
+        </div>
+    </div>
+
+    <nav class="menu">
+        <div class="container">
+            <a href="#">Medicamentos</a>
+            <a href="#">Genéricos</a>
+            <a href="#">Beleza</a>
+            <a href="#">Higiene</a>
+            <a href="#">Mamãe e Bebê</a>
+            <a href="#">Vitaminas</a>
+            <a href="#" class="destaque">Ofertas 🔥</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <!-- Flyer principal -->
+    <section class="container">
+        <div class="flyer">
+            <div class="flyer-texto">
+                <span class="flyer-tag">SEMANA DA SAÚDE</span>
+                <h1>Até <span>50% OFF</span> em vitaminas e suplementos</h1>
+                <p>Cuide de você e da sua família com os melhores preços da região. Ofertas válidas até domingo!</p>
+                <a href="#" class="btn btn-amarelo">Aproveitar ofertas</a>
+            </div>
+            <div class="flyer-arte">
+                <div class="pilula p1"></div>
+                <div class="pilula p2"></div>
+                <div class="pilula p3"></div>
+                <div class="selo">
+                    <small>a partir de</small>
+                    <strong>R$ 9,90</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vantagens -->
+    <section class="container vantagens">
+        <div class="vantagem"><span>🚚</span><div><strong>Entrega rápida</strong><small>Receba em até 1 hora</small></div></div>
+        <div class="vantagem"><span>💳</span><div><strong>Até 6x sem juros</strong><small>Em todos os cartões</small></div></div>
+        <div class="vantagem"><span>🏪</span><div><strong>Retire na loja</strong><small>Sem custo adicional</small></div></div>
+        <div class="vantagem"><span>💬</span><div><strong>Fale com o farmacêutico</strong><small>Atendimento 24h</small></div></div>
+    </section>
+
+    <!-- Categorias -->
+    <section class="container">
+        <h2 class="titulo">Categorias</h2>
+        <div class="categorias">
+            <a href="#" class="categoria"><span>💊</span>Medicamentos</a>
+            <a href="#" class="categoria"><span>🧴</span>Dermocosméticos</a>
+            <a href="#" class="categoria"><span>🍼</span>Mamãe e Bebê</a>
+            <a href="#" class="categoria"><span>🪥</span>Higiene</a>
+            <a href="#" class="categoria"><span>🍊</span>Vitaminas</a>
+            <a href="#" class="categoria"><span>🩺</span>Saúde</a>
+        </div>
+    </section>
+
+    <!-- Produtos em oferta -->
+    <section class="container">
+        <div class="titulo-linha">
+            <h2 class="titulo">Ofertas do dia</h2>
+            <a href="#">Ver todas →</a>
+        </div>
+        <div class="produtos">
+            <div class="produto">
+                <span class="desconto">-30%</span>
+                <div class="produto-img">💊</div>
+                <p class="produto-nome">Dipirona 500mg - 20 comprimidos</p>
+                <p class="preco-antigo">R$ 12,90</p>
+                <p class="preco">R$ 8,99</p>
+                <button class="btn btn-verde">Adicionar</button>
+            </div>
+            <div class="produto">
+                <span class="desconto">-25%</span>
+                <div class="produto-img">🍊</div>
+                <p class="produto-nome">Vitamina C 1g - 30 comprimidos efervescentes</p>
+                <p class="preco-antigo">R$ 39,90</p>
+                <p class="preco">R$ 29,90</p>
+                <button class="btn btn-verde">Adicionar</button>
+            </div>
+            <div class="produto">
+                <span class="desconto">-40%</span>
+                <div class="produto-img">🧴</div>
+                <p class="produto-nome">Protetor Solar FPS 50 - 200ml</p>
+                <p class="preco-antigo">R$ 79,90</p>
+                <p class="preco">R$ 47,90</p>
+                <button class="btn btn-verde">Adicionar</button>
+            </div>
+            <div class="produto">
+                <span class="desconto">-15%</span>
+                <div class="produto-img">🪥</div>
+                <p class="produto-nome">Kit Escova + Creme Dental</p>
+                <p class="preco-antigo">R$ 22,90</p>
+                <p class="preco">R$ 19,40</p>
+                <button class="btn btn-verde">Adicionar</button>
+            </div>
+            <div class="produto">
+                <span class="desconto">-20%</span>
+                <div class="produto-img">🍼</div>
+                <p class="produto-nome">Fralda Infantil M - 60 unidades</p>
+                <p class="preco-antigo">R$ 89,90</p>
+                <p class="preco">R$ 71,90</p>
+                <button class="btn btn-verde">Adicionar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banners duplos -->
+    <section class="container banners">
+        <div class="banner banner-rosa">
+            <h3>Beleza em dobro</h3>
+            <p>Leve 2 dermocosméticos e ganhe 20% no segundo.</p>
+            <a href="#" class="btn btn-branco">Conferir</a>
+        </div>
+        <div class="banner banner-azul">
+            <h3>Programa Vida+</h3>
+            <p>Cadastre-se e ganhe descontos exclusivos em medicamentos de uso contínuo.</p>
+            <a href="#" class="btn btn-branco">Quero participar</a>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container newsletter-inner">
+            <div>
+                <h3>Receba ofertas no seu e-mail</h3>
+                <p>Promoções exclusivas toda semana.</p>
+            </div>
+            <form onsubmit="return false">
+                <input type="email" placeholder="Seu melhor e-mail">
+                <button class="btn btn-amarelo">Cadastrar</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<!-- Rodapé -->
+<footer class="footer">
+    <div class="container footer-inner">
+        <div>
+            <a href="#" class="logo logo-claro">
+                <span class="logo-cruz">✚</span>
+                <span>Farmácia <strong>Vida</strong></span>
+            </a>
+            <p>Cuidando da sua saúde desde 1998.</p>
+        </div>
+        <div>
+            <h4>Institucional</h4>
+            <a href="#">Sobre nós</a>
+            <a href="#">Nossas lojas</a>
+            <a href="#">Trabalhe conosco</a>
+        </div>
+        <div>
+            <h4>Ajuda</h4>
+            <a href="#">Central de atendimento</a>
+            <a href="#">Trocas e devoluções</a>
+            <a href="#">Política de privacidade</a>
+        </div>
+        <div>
+            <h4>Atendimento</h4>
+            <p>(11) 4000-1234</p>
+            <p>sac@farmaciavida.com.br</p>
+        </div>
+    </div>
+    <p class="copy">© 2026 Farmácia Vida - Template de estudo</p>
+</footer>
+
+</body>
+</html>
