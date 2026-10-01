@@ -6,11 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class LoginController {
+public class indexController {
 
-  @GetMapping("/login")
-  public String inicio() {
-    return "login";
+  @GetMapping("/home")
+  public String home(Principal principal, Model model) {
+    model.addAttribute("usuario", principal.getName());
+    return "home";
   }
 
 }

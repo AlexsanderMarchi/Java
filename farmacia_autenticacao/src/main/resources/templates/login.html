@@ -2,25 +2,29 @@
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Farmacia - Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Farmácia Vida - Login</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-<div class="card">
-    <h1>Farmacia</h1>
+
+<main class="card">
+    <h1>Farmácia Vida</h1>
     <p class="sub">Entre com sua conta</p>
 
-    <p class="erro" th:if="${erro}" th:text="${erro}"></p>
+    <p class="erro" th:if="${param.error != null}">Dados inválidos!</p>
+    <p class="info" th:if="${param.logout != null}">Você saiu da aplicação!</p>
 
-    <form th:action="@{/login}" method="post">
-        <label for="usuario">Usuario</label>
-        <input type="text" id="usuario" name="usuario" required>
+    <form method="post" th:action="@{/login}">
+        <label for="username">Email:</label>
+        <input id="username" name="username" type="text" required>
 
-        <label for="senha">Senha</label>
-        <input type="password" id="senha" name="senha" required>
+        <label for="password">Senha:</label>
+        <input id="password" name="password" type="password" required>
 
         <button type="submit">Entrar</button>
     </form>
-</div>
+</main>
+
 </body>
 </html>
