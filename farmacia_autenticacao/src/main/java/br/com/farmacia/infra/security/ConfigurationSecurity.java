@@ -2,6 +2,7 @@ package br.com.farmacia.infra.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
@@ -30,13 +31,14 @@ public class ConfigurationSecurity {
   @Bean
   public SecurityFilterChain filtrosSeguranca(HttpSecurity http) throws Exception{
     return http.authorizeHttpRequests(req -> {
-      req.requestMatchers("/css/**", "/js/**", "/assets/**").permitAll();
+      req.requestMatchers("/css/**", "/js/**", "/assets/**", "/.well-known/**").permitAll();
       req.anyRequest().authenticated();
     }).formLogin(form -> form.loginPage("/login")
-        .defaultSuccessUrl("/home")
+        .defaultSuccessUrl("/home", true)
         .permitAll())
         .logout(logout -> logout.logoutSuccessUrl("/login?logout").permitAll())
-        .rememberMe(rememberMe -> rememberMe.key("LembrarDeMim"))
+        .rememberMe(rememberMe -> rememberMe.key("LembrarDeMim").alwaysRemember(true))
+        .csrf(Customizer.withDefaults())
         .build();
   }
 }
