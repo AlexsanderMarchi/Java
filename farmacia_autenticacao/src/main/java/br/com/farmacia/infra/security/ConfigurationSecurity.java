@@ -8,6 +8,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -15,18 +17,18 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class ConfigurationSecurity {
 
-  @Bean
-  public UserDetailsService dadosUsuarios(){
-    UserDetails usuario1 = User.builder()
-        .username("teste@")
-        .password("{noop}123")
-        .build();
-    UserDetails usuario2 = User.builder()
-        .username("teste2@")
-        .password("{noop}456")
-        .build();
-    return new InMemoryUserDetailsManager(usuario1, usuario2);
-  }
+//  @Bean
+//  public UserDetailsService dadosUsuarios(){
+//    UserDetails usuario1 = User.builder()
+//        .username("teste@")
+//        .password("{noop}123")
+//        .build();
+//    UserDetails usuario2 = User.builder()
+//        .username("teste2@")
+//        .password("{noop}456")
+//        .build();
+//    return new InMemoryUserDetailsManager(usuario1, usuario2);
+//  }
 
   @Bean
   public SecurityFilterChain filtrosSeguranca(HttpSecurity http) throws Exception{
@@ -40,5 +42,10 @@ public class ConfigurationSecurity {
         .rememberMe(rememberMe -> rememberMe.key("LembrarDeMim").alwaysRemember(true))
         .csrf(Customizer.withDefaults())
         .build();
+  }
+
+  @Bean
+  public PasswordEncoder codificadorSenha(){
+      return new BCryptPasswordEncoder();
   }
 }
