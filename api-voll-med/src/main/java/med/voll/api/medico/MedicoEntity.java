@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Audited;
 
 @Audited.Table(name = "medicos")
-@Entity(name = "Medico")
+@Entity(name = "Medicos")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
