@@ -5,6 +5,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/farmacia_autenticacao/pom.xml" />
+        <option value="$PROJECT_DIR$/api-voll-med/pom.xml" />
       </list>
     </option>
   </component>

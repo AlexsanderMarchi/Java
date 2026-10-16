@@ -1,0 +1,7 @@
+create table medicos(
+    id bigint not null auto_increment,
+    nome varchar(100) not null,
+    crm varchar(6) not null unique,
+
+    PRIMARY KEY (id)
+);
